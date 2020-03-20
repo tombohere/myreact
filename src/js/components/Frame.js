@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { AppContext } from './../../context/AppContext';
 import Home from './Home';
 import Minesweeper from './Minesweeper';
 import Form from './Form';
@@ -8,13 +9,15 @@ import './../../sass/App.scss';
 
 const Frame = () => {
 
+  const [counter] = useContext(AppContext);
+  
   return (
     <BrowserRouter>
       <div className="app-container">
         <main>
           <header>
             <div className="logo">
-              🐻
+              🐻 {counter}
             </div>
             <menu>
               <ul>
