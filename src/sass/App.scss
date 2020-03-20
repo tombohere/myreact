@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  display: block;
+}
+
+.app {
+  display: block;
+}
+
+.app-container {
+  display:  flex;
+  height: 100vh;
+}
+
+main {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 60px auto 50px;
+  background-color: lavender;
+  header {
+    display: flex;
+    background-color: lightgray;
+    .logo {
+      background-color: lightseagreen;
+      width: 50%;
+    }
+    menu {
+      display: flex;
+      justify-content: flex-end;
+      width: 70%;
+      background-color: lightpink;
+      margin: 0;
+      ul {
+        display: flex;
+        padding: 0;
+        li {
+          display: inline-block;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+  section {
+    background-color: lemonchiffon;
+  }
+  footer {
+    background-color: lightskyblue;
+  }
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  margin-bottom: 0.25em;
+}
+a {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 4px;
+  background-position-y: 1em;
+  transition: background-size cubic-bezier(0, 0.5, 0, 1) 0.3s;
+}
+a:hover,
+a:visited:hover,
+a:active:hover {
+  text-decoration: none;
+  background-size: 100% 4px;
+}
+a:focus,
+a:visited {
+  text-decoration: none;
+  background-size: 0% 4px;
+}
