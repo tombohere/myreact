@@ -10,6 +10,7 @@ const Minesweeper = () => {
       MineSweeper
       <button onClick={() => setCounter(counter + 1)}>+</button>
       <button onClick={() => setCounter(counter - 1)}>-</button>
+      {counter}
     </>
   );
 };

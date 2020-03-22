@@ -15,8 +15,7 @@ const Form = () => {
         type="text"
         value={value}
         onChange={handleChange}
-      />
-      -{value}
+      /> {value}
     </form>
   );
 };
