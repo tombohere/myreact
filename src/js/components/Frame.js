@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 import { AppContext } from './../../context/AppContext';
 import Home from './Home';
@@ -26,7 +26,7 @@ const Frame = () => {
                   <NavLink tabIndex="2" exact to="/">Home</NavLink>
                 </li>
                 <li>
-                  <NavLink tabIndex="3" exact to="/emoji">Emoji</NavLink>
+                    <NavLink tabIndex="3" exact to="/emoji">Emoji</NavLink>
                 </li>
                 <li>
                   <NavLink tabIndex="3" exact to="/minesweeper">MineSweeper</NavLink>
@@ -38,10 +38,13 @@ const Frame = () => {
             </menu>
           </header>
           <section>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/emoji" component={Emoji} />
-            <Route exact path="/minesweeper" component={Minesweeper} />
-            <Route exact path="/form" component={Form} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/emoji" component={Emoji} />
+              <Route exact path="/minesweeper" component={Minesweeper} />
+              <Route exact path="/form" component={Form} />
+              <Route render={() => <h2>404 Page Not Found</h2>} />
+            </Switch>
           </section>
           <footer>
             FOOTER
