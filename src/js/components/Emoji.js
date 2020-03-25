@@ -41,7 +41,7 @@ const Emoji = () => {
       <button onClick={() => setCounter(counter + 1)}>+</button>
       <button onClick={() => setCounter(counter - 1)}>-</button>
       {counter}
-      <form className="my-form">
+      <form className="emoji-form">
         <input
           type="text"
           value={searchterm}

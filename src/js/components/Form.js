@@ -2,21 +2,54 @@ import React, { useState } from 'react';
 import './../../sass/Form.scss';
 
 const Form = () => {
-  const [value, setValue] = useState('');
+  const [form, setForm] = useState({
+    first: '',
+    last: '',
+    email: ''
+  });
 
   function handleChange(event) {
-    const { value } = event.target;
-    setValue(value);
+    const { id, value } = event.target;
+    console.log(id, value);
+    setForm({ ...form, [id]: value });
   }
 
   return (
-    <form className="my-form">
-      <input
-        type="text"
-        value={value}
-        onChange={handleChange}
-      /> {value}
-    </form>
+    <>
+      <form className="my-form">
+        <div className="form-grid">
+          <label htmlFor="first">First Name</label>
+          <input
+            id="first"
+            name="first"
+            type="text"
+            value={form.first}
+            onChange={handleChange}
+            autoComplete="off"
+          />
+          <label htmlFor="last">Last Name</label>
+          <input
+            id="last"
+            name="last"
+            type="text"
+            value={form.last}
+            onChange={handleChange}
+            autoComplete="off"
+          />
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="text"
+            value={form.email}
+            onChange={handleChange}
+            autoComplete="off"
+          />
+        </div>
+        <button>Submit</button>
+      </form>
+      {JSON.stringify(form)}
+    </>
   );
 };
 
