@@ -8,15 +8,19 @@ const Form = () => {
     email: ''
   });
 
-  function handleChange(event) {
-    const { id, value } = event.target;
-    console.log(id, value);
+  const onChange = e => {
+    const { id, value } = e.target;
     setForm({ ...form, [id]: value });
+  }
+
+  const onSubmit = e => {
+    console.log(JSON.stringify(form));
+    e.preventDefault();
   }
 
   return (
     <>
-      <form className="my-form">
+      <form className="my-form" onSubmit={onSubmit} noValidate>
         <div className="form-grid">
           <label htmlFor="first">First Name</label>
           <input
@@ -24,8 +28,9 @@ const Form = () => {
             name="first"
             type="text"
             value={form.first}
-            onChange={handleChange}
+            onChange={onChange}
             autoComplete="off"
+            required
           />
           <label htmlFor="last">Last Name</label>
           <input
@@ -33,17 +38,19 @@ const Form = () => {
             name="last"
             type="text"
             value={form.last}
-            onChange={handleChange}
+            onChange={onChange}
             autoComplete="off"
+            required
           />
           <label htmlFor="email">Email</label>
           <input
             id="email"
             name="email"
-            type="text"
+            type="email"
             value={form.email}
-            onChange={handleChange}
+            onChange={onChange}
             autoComplete="off"
+            required
           />
         </div>
         <button>Submit</button>
